@@ -4034,6 +4034,18 @@ namespace Emby.Server.Implementations.Data
                 whereClauses.Add(clause);
             }
 
+            if (query.HasAlbum.HasValue)
+            {
+                if (query.HasAlbum.Value)
+                {
+                    whereClauses.Add("Album is not null");
+                }
+                else
+                {
+                    whereClauses.Add("Album is null");
+                }
+            }
+
             if (query.AlbumIds.Length > 0)
             {
                 var clauses = new List<string>();

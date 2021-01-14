@@ -89,6 +89,7 @@ namespace Jellyfin.Api.Controllers
         /// <param name="contributingArtistIds">Optional. If specified, results will be filtered to include only those containing the specified contributing artist id.</param>
         /// <param name="albums">Optional. If specified, results will be filtered based on album. This allows multiple, pipe delimited.</param>
         /// <param name="albumIds">Optional. If specified, results will be filtered based on album id. This allows multiple, pipe delimited.</param>
+        /// <param name="hasAlbum">Optional. If specified, filter by whether item has album or not.</param>
         /// <param name="ids">Optional. If specific items are needed, specify a list of item id's to retrieve. This allows multiple, comma delimited.</param>
         /// <param name="videoTypes">Optional filter by VideoType (videofile, dvd, bluray, iso). Allows multiple, comma delimited.</param>
         /// <param name="minOfficialRating">Optional filter by minimum official rating (PG, PG-13, TV-MA, etc).</param>
@@ -172,6 +173,7 @@ namespace Jellyfin.Api.Controllers
             [FromQuery, ModelBinder(typeof(CommaDelimitedArrayModelBinder))] Guid[] contributingArtistIds,
             [FromQuery, ModelBinder(typeof(CommaDelimitedArrayModelBinder))] string[] albums,
             [FromQuery, ModelBinder(typeof(CommaDelimitedArrayModelBinder))] Guid[] albumIds,
+            [FromQuery] bool? hasAlbum,
             [FromQuery, ModelBinder(typeof(CommaDelimitedArrayModelBinder))] Guid[] ids,
             [FromQuery, ModelBinder(typeof(CommaDelimitedArrayModelBinder))] VideoType[] videoTypes,
             [FromQuery] string? minOfficialRating,
@@ -257,6 +259,7 @@ namespace Jellyfin.Api.Controllers
                     contributingArtistIds,
                     albums,
                     albumIds,
+                    hasAlbum,
                     ids,
                     videoTypes,
                     minOfficialRating,

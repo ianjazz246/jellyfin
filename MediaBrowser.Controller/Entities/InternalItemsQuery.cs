@@ -217,6 +217,8 @@ namespace MediaBrowser.Controller.Entities
 
         public Guid[] AlbumIds { get; set; }
 
+        public bool? HasAlbum { get; set; }
+
         public Guid[] ArtistIds { get; set; }
 
         public Guid[] ExcludeArtistIds { get; set; }
